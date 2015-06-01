@@ -25,6 +25,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.preference.CheckBoxPreference;
 import android.os.UserManager;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
@@ -34,7 +35,6 @@ import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
-import android.preference.SwitchPreference;
 import android.provider.Settings;
 import android.telephony.SubscriptionInfo;
 import android.telephony.SubscriptionManager;
@@ -195,28 +195,28 @@ public class CellBroadcastSettings extends PreferenceActivity {
             // Emergency alert preference category (general and CMAS preferences).
             PreferenceCategory alertCategory =
                     (PreferenceCategory) findPreference(KEY_CATEGORY_ALERT_SETTINGS);
-            final SwitchPreference enablePwsAlerts =
-                    (SwitchPreference) findPreference(KEY_ENABLE_EMERGENCY_ALERTS);
+            final CheckBoxPreference enablePwsAlerts =
+                    (CheckBoxPreference) findPreference(KEY_ENABLE_EMERGENCY_ALERTS);
             final ListPreference duration =
                     (ListPreference) findPreference(KEY_ALERT_SOUND_DURATION);
             final ListPreference interval =
                     (ListPreference) findPreference(KEY_ALERT_REMINDER_INTERVAL);
-            final SwitchPreference enableChannel50Alerts =
-                    (SwitchPreference) findPreference(KEY_ENABLE_CHANNEL_50_ALERTS);
-            final SwitchPreference enableEtwsAlerts =
-                    (SwitchPreference) findPreference(KEY_ENABLE_ETWS_TEST_ALERTS);
-            final SwitchPreference enableCmasExtremeAlerts =
-                    (SwitchPreference) findPreference(KEY_ENABLE_CMAS_EXTREME_THREAT_ALERTS);
-            final SwitchPreference enableCmasSevereAlerts =
-                    (SwitchPreference) findPreference(KEY_ENABLE_CMAS_SEVERE_THREAT_ALERTS);
-            final SwitchPreference enableCmasAmberAlerts =
-                    (SwitchPreference) findPreference(KEY_ENABLE_CMAS_AMBER_ALERTS);
-            final SwitchPreference enableCmasTestAlerts =
-                    (SwitchPreference) findPreference(KEY_ENABLE_CMAS_TEST_ALERTS);
-            final SwitchPreference enableSpeakerAlerts =
-                    (SwitchPreference) findPreference(KEY_ENABLE_ALERT_SPEECH);
-            final SwitchPreference enableVibrateAlerts =
-                    (SwitchPreference) findPreference(KEY_ENABLE_ALERT_VIBRATE);
+            final CheckBoxPreference enableChannel50Alerts =
+                    (CheckBoxPreference) findPreference(KEY_ENABLE_CHANNEL_50_ALERTS);
+            final CheckBoxPreference enableEtwsAlerts =
+                    (CheckBoxPreference) findPreference(KEY_ENABLE_ETWS_TEST_ALERTS);
+            final CheckBoxPreference enableCmasExtremeAlerts =
+                    (CheckBoxPreference) findPreference(KEY_ENABLE_CMAS_EXTREME_THREAT_ALERTS);
+            final CheckBoxPreference enableCmasSevereAlerts =
+                    (CheckBoxPreference) findPreference(KEY_ENABLE_CMAS_SEVERE_THREAT_ALERTS);
+            final CheckBoxPreference enableCmasAmberAlerts =
+                    (CheckBoxPreference) findPreference(KEY_ENABLE_CMAS_AMBER_ALERTS);
+            final CheckBoxPreference enableCmasTestAlerts =
+                    (CheckBoxPreference) findPreference(KEY_ENABLE_CMAS_TEST_ALERTS);
+            final CheckBoxPreference enableSpeakerAlerts =
+                    (CheckBoxPreference) findPreference(KEY_ENABLE_ALERT_SPEECH);
+            final CheckBoxPreference enableVibrateAlerts =
+                    (CheckBoxPreference) findPreference(KEY_ENABLE_ALERT_VIBRATE);
 
             final int idx = interval.findIndexOfValue(
                     (String)prefs.getString(KEY_ALERT_REMINDER_INTERVAL + sPhoneId,
