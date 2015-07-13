@@ -23,13 +23,13 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.UserManager;
-import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
+import android.preference.SwitchPreference;
 import android.provider.Settings;
 import android.telephony.SubscriptionInfo;
 import android.telephony.SubscriptionManager;
@@ -142,11 +142,11 @@ public class CellBroadcastSettings extends PreferenceActivity {
                     if (isExtreme) {
                         boolean isExtremeAlertChecked =
                             ((Boolean) newValue).booleanValue();
-                        CheckBoxPreference severeCheckBox = (CheckBoxPreference)
+                        SwitchPreference severeSwitch = (SwitchPreference)
                             findPreference(KEY_ENABLE_CMAS_SEVERE_THREAT_ALERTS);
-                        if (severeCheckBox != null) {
-                            severeCheckBox.setEnabled(isExtremeAlertChecked);
-                            severeCheckBox.setChecked(false);
+                        if (severeSwitch != null) {
+                            severeSwitch.setEnabled(isExtremeAlertChecked);
+                            severeSwitch.setChecked(false);
                         }
                     }
 
@@ -222,7 +222,7 @@ public class CellBroadcastSettings extends PreferenceActivity {
                 enableCmasSevereAlerts.setOnPreferenceChangeListener(startConfigServiceListener);
                 if (enableCmasExtremeAlerts != null) {
                     boolean isExtremeAlertChecked =
-                            ((CheckBoxPreference)enableCmasExtremeAlerts).isChecked();
+                            ((SwitchPreference)enableCmasExtremeAlerts).isChecked();
                     enableCmasSevereAlerts.setEnabled(isExtremeAlertChecked);
                 }
             }
